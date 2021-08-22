@@ -1,0 +1,292 @@
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --black : #171717;
+    --grey : #444444;
+    --red : #DA0037;
+    --white : #d1d1d1;
+}
+
+a,a:hover,a:active,a:visited,a:link{
+    text-decoration: none;
+    color: inherit;
+}
+
+button{
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: var(--black);
+}
+
+.container{
+    width: 90%;
+    margin: auto;
+}
+
+/* HEADER */
+
+#navbar{
+    width: 100%;
+    padding: 20px;
+    background-color: var(--black);
+}
+
+#navbar .container{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+#logo .logo{
+    color: var(--red);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2em;
+    transition: all 0.2s;
+}
+
+#logo .logo:hover{
+    color: #c20333;
+}
+
+#menu{
+    text-align: right;
+}
+
+#menu .nav-link{
+    color: var(--white);
+    font-size: 1.2em;
+    margin-left: 30px;
+    transition: all 0.2s;
+}
+
+#menu .nav-link:hover{
+    color: #ffffff;
+}
+
+@media screen and (max-width:900px) {
+    #navbar .container{
+        grid-template-columns: 1fr;
+    }
+    #logo{
+        text-align: center;
+    }
+    #menu{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:625px) {
+    .container{
+        width: 100%;
+    }
+    #menu .nav-link{
+        font-size: 1.0em;
+        text-align: center;
+        margin-left: 10px;
+    }
+}
+
+/* BANNER */
+
+#banner{
+    background: linear-gradient(to bottom, rgba(0,0,0, 0), rgba(0,0,0, 0.8)),url(../images/bg-interstellar.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    padding: 20px;
+    font-size: 16px;
+    min-height: 31.25em; 
+    display: flex;
+    align-items: flex-end;
+}
+
+#banner .container{
+    margin: 0px auto;
+    margin-bottom: 5.25em;
+}
+
+#banner .informacion{
+    width: 50%;
+}
+
+#banner .informacion .titulo{
+    font-size: 2em;
+    margin-bottom: 0.4em;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.295);
+    color: #fff;
+}
+
+#banner .informacion .sinopsis{
+    line-height: 25px;
+    color: #fff;
+}
+
+#banner .informacion .buttons .btn{
+    font-size: 1.1em;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.404);
+    color: #fff;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+#banner .informacion .buttons .btn:hover{
+    background-color: rgba(0, 0, 0, 0.801);
+}
+
+.fas{
+    margin: 0px 5px;
+}
+
+@media screen and (max-width:900px) {
+    #banner .informacion{
+        width: 80%;
+    }
+    #banner{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:625px) {
+    #banner{
+        font-size: 14px;
+        background-position: right;
+    }
+    #banner .informacion{
+        width: 100%;
+    }
+
+}
+
+/* SLIDER */
+
+.peliculas-recomendadas{
+    background-color: var(--black);
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 70px;
+}
+
+/* INDICADORES */
+
+.titulo-controles{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1em;
+}
+
+.titulo-controles h3{
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.titulo-controles .indicadores button{
+    background-color: #fff;
+    height: 3px;
+    width: 10px;
+    margin: 0px 2px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.1s;
+}
+
+.titulo-controles .indicadores button:hover,
+.titulo-controles .indicadores button.active{
+    background-color: var(--red);
+}
+
+/* BOTONES CAROUSEL */
+
+.principal{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.principal .left, .principal .right{
+    position: absolute;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-size: 40px;
+    height: 50%;
+    top: calc(50% - 25%);
+    line-height: 40px;
+    width: 50px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 500;
+    transition: all 0.2s;
+}
+
+.principal .left:hover, .principal .right:hover{
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.principal .left{
+    left: 0;
+}
+
+.principal .right{
+    right: 0;
+}
+
+/* CAROUSEL */
+
+.container-carousel{
+    width: 100%;
+    padding: 20px 0px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.container-carousel .carousel{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.container-carousel .carousel .pelicula{
+    min-width: 20%;
+    transition: all 0.2s;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.container-carousel .carousel .pelicula.hover{
+    transform: scale(1.2);
+    transform-origin: center;
+}
+
+.container-carousel .carousel .pelicula img{
+    width: 100%;
+    vertical-align: top; 
+}
+
+@media screen and (max-width:900px) {
+    .indicadores, .left, .right{
+        display: none;
+    }
+
+    .container-carousel{
+        overflow: visible;
+    }
+
+    .container-carousel .carousel{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width:625px) {
+    
+}
